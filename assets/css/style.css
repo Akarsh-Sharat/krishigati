@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     background-color: none;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -24,6 +25,12 @@ li{
 a{
     text-decoration: none;
 }
+
+a:focus{
+    background-color: transparent;
+}
+
+
 
 /* hero home */
 
@@ -140,11 +147,12 @@ a{
         opacity: 0;
         transform: translateX(100%);
         transition: all 0.5s ease-in;
-        background-color: yellowgreen;
+        background-color: #187927;
     }
     .nav-list .nav-item{
         margin: 0;
         padding: 30px;
+        color: whitesmoke;
     }
     .nav-item::after{
         display: none;
@@ -212,6 +220,20 @@ a{
     font-style: italic;
 }
 
+.read-more{
+    color: #187927;
+    font-size: 1.5rem;
+    margin: 30px;
+    font-weight: bold;
+    display: block;
+    cursor: pointer;
+}
+
+.more-text{
+    display: none;
+    transition: all 0.2s ease-in;
+}
+
 /* for LAPTOP */
 @media screen and (min-width: 768px) and (max-width: 991px){
     .hero-story .hero-story-title{
@@ -242,6 +264,7 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .sales .qna{
@@ -272,7 +295,8 @@ a{
     padding: 0 2.5vw;
     white-space: nowrap;
     overflow-x: auto;
-    background-color: rgba(171, 215, 178, 1);
+    background-color: #b9e2c29d;
+    offset: 700;
 }
 
 .products::-webkit-scrollbar{
@@ -292,11 +316,16 @@ a{
 
 .products li{
     width: 350px;
-    height: 500px;
-    margin: 5vw 2.5vw;
+    height: 100%;
+    margin: 2.5vw;
+    padding: 2.5vw;
     display: inline-block;
     white-space: normal;
     text-align: center;
+    border-radius: 10px;
+    box-shadow: 
+        0 5px 5px 5px #bdd6c3,
+        0 15px 15px 15px #cef0d4;
 }
 
 .products .product-image{
@@ -342,6 +371,50 @@ a{
     background-color: rgba(70, 70, 70, 0.3);
 }
 
+.shop-item-action{
+    margin: 3vw 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.shop-item-action div{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4DE81;
+    box-shadow: 0 0 1px 1px ;
+}
+
+.scroll-arrow{
+    width: 5vw;
+    height: 10vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(148, 148, 148, 0.5);
+}
+
+.scroll-arrow:hover{
+    cursor: pointer;
+}
+
+.scroll-arrow div{
+    font-size: 2rem;
+}
+
+.left-scroll{
+    left: 0;
+}
+
+.right-scroll{
+    right: 0;
+}
+
 /* for LAPTOP */
 @media screen and (min-width: 768px) and (max-width: 991px){
     .sales .qna{
@@ -380,11 +453,150 @@ a{
     }
     .products li{
         width: 200px;
-        height: 350px;
+        height: 100%;
         margin: 10vw 5vw;
     }
     .products .product-desc{
         font-size: 0.8rem;
+    }
+    .shop-item-action div{
+        width: 50px;
+        height: 50px;
+    }
+    .scroll-arrow{
+        width: 10vw;
+        height: 20vw;
+    }
+    .scroll-arrow div{
+        font-size: 1.5rem;
+    }
+}
+
+/* news section */
+.news{
+    width: 100%;
+    height: auto;
+    padding: 3vw 1vw 1.5vw;
+    background-color: rgba(204, 204, 204, 0.144);
+    position: relative;
+}
+
+.news-heading{
+    width: 100%;
+    height: auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.news-section{
+    width: 100%;
+    height: auto;
+    padding: 1vw 2vw;
+    margin-top: 1.5vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.news-card{
+    width: 100%;
+    height: auto;
+    padding: 1.5vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.news-card div{
+    margin: 1vw;
+}
+
+.news-card-img img{
+    width: 100%;
+    height: auto;
+}
+
+.news-card-info{
+    position: relative;
+    padding: 0;
+}
+
+.news-card-info div{
+    width: 100%;
+    margin-left: 0;
+    font-size: 2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.news-card-info p{
+    width: 100%;
+    margin-top: 2vw;
+    font-size: 1.5rem;
+}
+
+.news-card-info section{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.news-scroll{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(187, 187, 187, 0.2);
+    z-index: 69;
+    cursor: pointer;
+}
+
+.news-left{
+    left: 1vw;
+}
+
+.news-right{
+    right: 1vw;
+}
+
+.material-icons{
+    font-size: 30px;
+    color: gray;
+}
+
+/* for LAPTOP */
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .news-card-info{
+        padding: 0;
+    }
+}
+
+/* for MOBILE */
+@media screen and (max-width: 767px){
+    .news{
+        padding: 5vw 1vw 3vw;
+    }
+    .news-card{
+        flex-direction: column;
+        padding: 5vw 0;
+    }
+    .news-heading{
+        font-size: 1.5rem;
+    }
+    .news-card-info{
+        padding: 50px 0;
+    }
+    .news-card-info div{
+        font-size: 1.5rem;
+    }
+    .news-card-info p{
+        font-size: 1rem;
     }
 }
 
@@ -437,8 +649,8 @@ a{
 }
 
 .users .user-image{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 15px;
     border-radius: 125px;
     overflow: hidden;
@@ -490,6 +702,9 @@ a{
 
 /* for MOBILE */
 @media screen and (max-width: 767px){
+    .testimonial .testimonial-title{
+        font-size: 1.5rem;
+    }
     .testimonial .users{
         padding: 0 2.5vw 5vw;
     }
@@ -499,8 +714,8 @@ a{
         margin: 10vw 5vw;
     }
     .users .user-image{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
     .users .user-desc{
         font-size: 0.8rem;
@@ -591,3 +806,4 @@ a{
         width: 100%;
     }
 }
+
