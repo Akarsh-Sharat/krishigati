@@ -1,26 +1,31 @@
 function addToCart() {
-    let cart = document.querySelector('.add-to-cart');
+    let cartBtn = document.querySelector('.add-to-cart');
+    let productId = document.getElementById("id");
     let productTitle = document.querySelector('.product-title');
     let quantity = document.querySelector('.quantity');
     let price = document.querySelector('.price');
     let item = {};
+    
+    if (sessionStorage.getItem("cartItemData") == null){
+        sessionStorage.setItem("cartItemData", JSON.stringify([]))
+        var cartItemData = JSON.parse(sessionStorage.getItem("cartItemData"));
+    }
+    else{
+        var cartItemData = JSON.parse(sessionStorage.getItem("cartItemData"));
+    }
 
-    cart.addEventListener('click', () => {
-        fetch("../assets/json/cart.json")
-            .then((res) => res.json())
-            .then((data) => {
-                item = {
-                    "id": data.length+1,
-                    "name": `${productTitle.innerHTML}`,
-                    "quantity": `${quantity.value}`,
-                    "price": `${price.innerHTML}`,
-                    "totalAmount": `${quantity.value * price.innerHTML}`,
-                }
-                data.push(item);
-                data = JSON.stringify(data);
-                
-            })
-            .catch((err) => console.log(err));
+    cartBtn.addEventListener('click', () => {
+        item = {
+            "id": parseInt(productId.innerHTML),
+            "name": productTitle.innerHTML,
+            "quantity": parseInt(quantity.value),
+            "price": parseInt(price.innerHTML),
+            "totalAmount": quantity.value * price.innerHTML
+        };
+        if (item.quantity > 0){
+            cartItemData.push(item);
+            sessionStorage.setItem("cartItemData", JSON.stringify(cartItemData));
+        }
     });
 }
 

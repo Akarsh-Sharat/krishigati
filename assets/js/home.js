@@ -31,7 +31,7 @@ function productScroll() {
 }
 
 async function newsExtract() {
-    fetch('../../news.json')
+    fetch('../assets/json/news.json')
         .then((res) => res.json())
         .then((data)=>{
             let counter = 0;
@@ -49,8 +49,7 @@ async function newsExtract() {
                     newsTitle.href = data[0].url;
                     newsDesc.innerHTML = data[0].description;
                     newsSource.innerHTML = `~ ${data[0].source.name}`;
-                    counter = 0;
-                    console.log(counter);
+                    counter = 0;                   
                 }
                 else{
                     newsImage.src = data[counter].urlToImage;
@@ -59,7 +58,6 @@ async function newsExtract() {
                     newsDesc.innerHTML = data[counter].description;
                     newsSource.innerHTML = `~ ${data[counter].source.name}`;
                     counter = counter - 1;
-                    console.log(counter);
                 }
             })
             rightArrow.addEventListener('click', () => {
@@ -70,7 +68,6 @@ async function newsExtract() {
                     newsDesc.innerHTML = data[0].description;
                     newsSource.innerHTML = `~ ${data[0].source.name}`;
                     counter = 0;
-                    console.log(counter);
                 }
                 else if (counter < 0){
                     newsImage.src = data[0].urlToImage;
@@ -79,7 +76,6 @@ async function newsExtract() {
                     newsDesc.innerHTML = data[0].description;
                     newsSource.innerHTML = `~ ${data[0].source.name}`;
                     counter = 0;
-                    console.log(counter);
                 }
                 else{
                     newsImage.src = data[counter].urlToImage;
@@ -88,7 +84,6 @@ async function newsExtract() {
                     newsDesc.innerHTML = data[counter].description;
                     newsSource.innerHTML = `~ ${data[counter].source.name}`;
                     counter = counter + 1;
-                    console.log(counter);
                 }
             })
         })

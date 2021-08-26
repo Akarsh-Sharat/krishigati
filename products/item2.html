@@ -8,45 +8,45 @@
     <!-- style -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/shop.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/item.css">
 </head>
 <body>
     <div class="main-content">
         <div class="hero-home">
             <div class="navbar">
                 <div class="logo">
-                    <a href="./index.html">
-                        <img src="./assets/img/home/krishigati_logo.png" alt="krishigati_logo">
+                    <a href="../index.html">
+                        <img src="../assets/img/home/krishigati_logo.png" alt="krishigati_logo">
                     </a>
                 </div>
                 <div class="nav-list">
-                    <a href="./shop.html"><li class="nav-item">Shop</li></a>
+                    <a href="../shop.html"><li class="nav-item">Shop</li></a>
                     <a href="#contact-us"><li class="nav-item">Contact Us</li></a>
-                    <a href="./cart.html"><li class="nav-item">Cart</li></a>
+                    <a href="../cart.html"><li class="nav-item">Cart</li></a>
                 </div>
                 <div class="material-icons menu-icon">menu</div>
             </div>
         </div>
-        <div class="products shop" id="product-shop">
-            <li>
-                <img src="./assets/img/item1/tractor.png" alt="item1" class="product-image">
-                <p class="product-name">Tractor</p>
-                <p class="product-desc"><q> jefed fincfwnvn nekncs nknfv nnksdnvnvns wgnv fwnv jefed fincfwnvn nekncs nknfv nnksdnvnvns wgnv fwnv jefed fincfwnvn nekncs nknfv nnksdnvnvns wgnv fwnv</q></p>
-                <div class="shop-item-action">
-                    <a href="./products/item1.html#prod"><div class="shop-item-read">View</div></a>
-                    <a href="./products/item1.html#prod"><div class="shop-item-buy">Add to cart</div></a>
-                </div> 
-            </li>
-            <li>
-                <img src="./assets/img/item1/tractor.png" alt="item2" class="product-image">
-                <p class="product-name">Amazing product</p>
-                <p class="product-desc"><q> jefed fincfwnvn nekncs nknfv nnksdnvnvns wgnv fwnv jefed fincfwnvn nekncs nknfv nnksdnvnvns wgnv fwnv jefed fincfwnvn nekncs nknfv nnksdnvnvns wgnv fwnv</q></p>
-                <div class="shop-item-action">
-                    <a href="./products/item2.html"><div class="shop-item-read">View</div></a>
-                    <a href="./products/item2.html"><div class="shop-item-buy">Add to cart</div></a>
-                </div> 
-            </li>
+        <div class="product-details" id="product-details">
+            <div>
+                <div class="product-images">
+                    <img src="../assets/img/item1/tractor.png" alt="item2" class="slides">
+                </div>
+            </div>
+            <div class="product-info" id="product-info">
+                <div class="product-title">Amazing product</div>
+                <div id="id" style="display: none;">2</div>
+                <div class="product-desc">
+                    <b>About:</b><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet optio veniam debitis impedit laborum corporis dignissimos eaque error. Sed sequi non similique corporis tempore atque totam harum omnis molestiae iure?
+                </div>
+                <div class="product-cost"><b>Cost : </b> ₹<span class="price">9000</span></div>
+                <div class="product-quantity">
+                    <p>Quantity: </p>
+                    <input type="number" name="quantity" id="quantity" class="quantity" min="1">
+                </div>
+                <div class="add-to-cart" id="add-to-cart">Add to Cart</div>
+            </div>
         </div>
         <div class="footer">
             <div class="krishigati">
@@ -91,6 +91,7 @@
             </div>
         </div>
     </div>
-    <script src="./assets/js/common.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/item.js"></script>
 </body>
 </html>
